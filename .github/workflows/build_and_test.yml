@@ -66,6 +66,7 @@ jobs:
         env:
           POW_REF: ${{ github.ref }}
         run: |
+          git switch naza ${{ github.head_ref }}
           IS_RSKJ_REF=$(git ls-remote --refs "$POW_REF")
           if test -n "${IS_RSKJ_REF}"; then
             echo "Found matching ref in RSKj"
